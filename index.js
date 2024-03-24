@@ -10,7 +10,9 @@ mongoose.connect(process.env.DB_URL)
     .then(() => console.log('DB Connected..!'))
     .catch((err) => console.log(err))
 
-app.use(cors());
+app.use(cors({
+    origin: ['https://poster-sandy.vercel.app', 'http://localhost:4200']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
